@@ -12,9 +12,9 @@ public interface Repository {
 
     Integer addUser(User user);
 
-    void editUser(User userDetails, Long id);
+    void editUser(User userDetails, int id);
 
-    void deleteUserById(Long id);
+    void deleteUserById(int id);
 
     User getUserById(Long id);
 

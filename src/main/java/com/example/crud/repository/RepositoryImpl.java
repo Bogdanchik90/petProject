@@ -35,7 +35,7 @@ public class RepositoryImpl implements Repository {
     }
 
     @Override
-    public void editUser(User userDetails, Long id) {
+    public void editUser(User userDetails, int id) {
         User user = entityManager.find(User.class, id);
         if (user != null) {
             user.setName(userDetails.getName());
@@ -47,7 +47,7 @@ public class RepositoryImpl implements Repository {
     }
 
     @Override
-    public void deleteUserById(Long id) {
+    public void deleteUserById(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
 
