@@ -1,5 +1,6 @@
 package com.example.crud.repository;
 
+import com.example.crud.dto.UserDto;
 import com.example.crud.model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -47,6 +48,19 @@ public class RepositoryImpl implements Repository {
     }
 
     @Override
+    public void editUser(UserDto userDetailsDto, int id) {
+        User user = entityManager.find(User.class, id);
+        if (user != null) {
+            user.setName(userDetailsDto.getName());
+            user.setDate(userDetailsDto.getDate());
+            user.setPhone(userDetailsDto.getPhone());
+            entityManager.merge(user);
+        } else {
+            throw new RuntimeException("Пользователь с таким id не найден");
+        }
+    }
+
+    @Override
     public void deleteUserById(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
@@ -65,7 +79,7 @@ public class RepositoryImpl implements Repository {
     }
 
     @Override
-    public User getUserById(Long id) {
+    public User getUserById(int id) {
         return entityManager.find(User.class, id);
     }
 

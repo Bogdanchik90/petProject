@@ -21,4 +21,6 @@ public class User {
     private String name;
     @Column(name = "date")
     private String date;
+    @Column(name = "phone")
+    private String phone;
 }

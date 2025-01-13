@@ -1,5 +1,6 @@
 package com.example.crud.repository;
 
+import com.example.crud.dto.UserDto;
 import com.example.crud.model.User;
 
 import java.util.List;
@@ -14,9 +15,11 @@ public interface Repository {
 
     void editUser(User userDetails, int id);
 
+    void editUser(UserDto userDetailsDto, int id);
+
     void deleteUserById(int id);
 
-    User getUserById(Long id);
+    User getUserById(int id);
 
     boolean isTableUsersEmpty();
 
